@@ -1,0 +1,58 @@
+#search-input
+{
+  width: 25%;
+}
+
+#crud-container
+{
+display: flex;
+  gap: 20px;
+}
+#crud-controller
+{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.c-c-input
+{
+  display: flex;
+  gap: 20px;
+  align-content: space-between;
+
+}
+
+
+:host ::ng-deep .p-button {
+  margin: 0 .5rem 0 0;
+  min-width: 10rem;
+}
+
+p {
+  margin: 0;
+}
+
+.confirmation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .p-dialog .p-button {
+  min-width: 6rem;
+}
+
+#tool-bar
+{
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+  /*gap: 500px;*/
+}
+
+#table-controller
+{
+  width: 50%;
+
+}

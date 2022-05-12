@@ -1,0 +1,36 @@
+<p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Add"></p-button>
+<p-dialog header="Add student" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false">
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input #i1 type="text" pInputText placeholder="ID">
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input #i2 type="text" pInputText placeholder="name">
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input #i3 type="text" pInputText placeholder="Age">
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input #i4 type="text" pInputText placeholder="Department">
+      </div>
+    </div>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-plus" (click)="add(i1,i2,i3,i4)" label="Add" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,109 @@
+<div id="tool-bar">
+<span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText placeholder="Search" [(ngModel)]="selectedProduct"/>
+</span>
+  <!--
+  <p-button (click)="showModalDialog()" icon="pi pi-external-link" label="add" class="p-button-success"> </p-button>
+  -->
+  <button pButton (click)="showModalDialog()" pRipple type="button" icon="pi pi-plus" label="ADD"
+          class="p-button-success"></button>
+
+</div>
+<section id="crud-container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">
+        <button class="btn btn-primary" (click)="toggleShowImages()"> show images</button>
+      </th>
+      <th scope="col">product</th>
+      <th scope="col">code</th>
+      <th scope="col">available</th>
+      <th scope="col">price</th>
+      <th scope="col">rating</th>
+      <th> Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products | productsFilter:selectedProduct">
+      <td>
+        <div *ngIf="showImages">{{product.image_path}}</div>
+      </td>
+      <td>{{product.name}}</td>
+      <td>{{product.code | dashReplacer}}</td>
+      <td>{{product.available |date:'short'}}</td>
+      <td>{{product.price }}</td>
+      <td>
+        <app-stars [rate]=product.rating></app-stars>
+      </td>
+      <td>
+        <div id="table-controller">
+          <button pButton pRipple type="button" label="" class="p-button-warning p-button-sm" icon="pi pi-pencil"
+                  (click)="edit(product.id)"></button>
+          <button pButton pRipple type="button" label="" class="p-button-danger p-button-sm" icon="pi pi-trash"
+                  (click)="delete(product.id)"></button>
+        </div>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+
+
+</section>
+
+
+<p-dialog header="Product" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false">
+
+  <section id="crud-controller">
+
+   <span class="p-float-label" *ngIf="! editing">
+    <input [(ngModel)]="addedProduct.id" id="id" type="text" pInputText *ngIf="!editing"/>
+     <input [(ngModel)]="editedProduct.id" id="id" type="text" pInputText *ngIf="editing"/>
+
+    <label for="id">ID</label>
+    </span>
+    <h2 *ngIf="editing">
+      product Id = {{editedProduct.id}}
+    </h2>
+
+    <span class="p-float-label">
+      <input [(ngModel)]="addedProduct.name" id="name" type="text" pInputText *ngIf="!editing"/>
+     <input [(ngModel)]="editedProduct.name" id="name" type="text" pInputText *ngIf="editing"/>
+      <label for="name">name</label>
+    </span>
+
+    <span class="p-float-label">
+    <input [(ngModel)]="addedProduct.price" id="price" type="text" pInputText *ngIf="!editing"/>
+     <input [(ngModel)]="editedProduct.price" id="price" type="text" pInputText *ngIf="editing"/>
+    <label for="price">Price</label>
+    </span>
+
+    <span class="p-float-label">
+     <input [(ngModel)]="addedProduct.code" id="code" type="text" pInputText *ngIf="!editing"/>
+     <input [(ngModel)]="editedProduct.code" id="code" type="text" pInputText *ngIf="editing"/>
+      <label for="code">product code</label>
+    </span>
+
+    <p-rating [(ngModel)]="addedProduct.rating" *ngIf="!editing"></p-rating>
+    <p-rating [(ngModel)]="editedProduct.rating" *ngIf="editing"></p-rating>
+
+    <div class="field col-12 md:col-4" *ngIf="!editing">
+      <label for="basic">Available At</label>
+      <p-calendar inputId="basic" [(ngModel)]="addedProduct.available" id="basic"></p-calendar>
+    </div>
+
+    <div class="field col-12 md:col-4" *ngIf="editing">
+      <label for="basic">Available At</label>
+      <p-calendar inputId="basic" [(ngModel)]="editedProduct.available" id="basic"></p-calendar>
+    </div>
+
+
+  </section>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-plus" (click)="add()" label="Add" styleClass="p-button-text" *ngIf="!editing"></p-button>
+    <p-button icon="pi pi-save" (click)="save()" label="save" styleClass="p-button-text" *ngIf="editing"></p-button>
+  </ng-template>
+</p-dialog>

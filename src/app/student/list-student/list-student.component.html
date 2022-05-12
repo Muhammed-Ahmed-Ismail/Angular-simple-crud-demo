@@ -1,0 +1,22 @@
+<table class="table table-hover col-12">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Department Name</th>
+    <th>options</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of studentService.studentsList; let ser=index">
+    <td>{{ser+1}}</td>
+    <td >{{student.id}}</td>
+    <td >{{student.name}}</td>
+    <td >{{student.age}}</td>
+    <td >{{student.deptName}}</td>
+    <td class="flex "><app-delete-student [id]=student.id></app-delete-student> <app-edit-student [id]=student.id></app-edit-student> </td>
+  </tr>
+  </tbody>
+</table>

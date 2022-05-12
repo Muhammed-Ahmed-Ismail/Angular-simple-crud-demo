@@ -1,0 +1,53 @@
+#c-nav-bar
+{
+  width:100%;
+  background-color: darkgray;
+  height: 50px;
+  border-radius: 3px;
+  display: flex;
+  justify-content:space-between;
+  margin-bottom:30px
+}
+
+#c-logo
+{
+  margin : 3px
+}
+#nav-bar-container
+{
+  width:100%;
+  display: flex;
+  gap:200px
+}
+#c-menu ul
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  list-style-type: none;
+}
+#c-menu ul li
+{
+  height:100%;
+
+}
+.hyper-c
+{
+  height: 50px;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+.hyper-c:hover
+{
+  background-color:black;
+  border-radius:10px
+
+}
+a:hover
+{
+  text-decoration: none;
+  color:darkgray;
+  font-size:30px
+}
