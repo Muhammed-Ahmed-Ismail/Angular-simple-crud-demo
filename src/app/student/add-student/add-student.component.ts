@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {StudentService} from "../../student.service";
 import {Student} from "../../_models/student";
 import {DialogModule} from 'primeng/dialog';
+import {Router} from "@angular/router";
+import {ListStudentComponent} from "../list-student/list-student.component";
 
 @Component({
   selector: 'app-add-student',
@@ -11,7 +13,7 @@ import {DialogModule} from 'primeng/dialog';
 export class AddStudentComponent implements OnInit {
   displayModal: boolean=false;
 
-  constructor(public studentService:StudentService) { }
+  constructor(public studentService:StudentService,public router:Router,public listStudent:ListStudentComponent) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +24,12 @@ export class AddStudentComponent implements OnInit {
   add(idField:any,nameField:any,ageField:any,deptField:any)
   {
     this.displayModal=false
-    let newStudent=new Student(idField.value,nameField.value,ageField.value,deptField.value)
-    this.studentService.studentsList.push(newStudent);
+    let newStudent=new Student(idField.value, nameField.value, ageField.value, deptField.value)
+    this.studentService.add(newStudent).subscribe({
+      next:(a)=>{
+
+      },
+    })
   }
 
 

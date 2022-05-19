@@ -24,7 +24,7 @@ export class EditStudentComponent implements OnInit {
   {
     this.showModalDialog()
     let student=this.studentService.getStudentById(this.id);
-    this.editedRecord=  (student ===undefined)? new Student(): new Student(student.id,student.name,student.age,student.deptName)
+    this.editedRecord=  (student ===undefined)? new Student(): new Student(student._id, student.name, student.age, student.deptName)
 
   }
   save()
