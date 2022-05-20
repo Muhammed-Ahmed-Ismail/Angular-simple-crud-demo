@@ -9,11 +9,14 @@ import {ProductModule} from "./product/product.module";
 import {CoreModule} from "./core/core.module";
 import {StudentModule} from "./student/student.module";
 import {SharedModule} from "./shared/shared.module";
+import {Department} from "./_models/department";
+import {DepartmentModule} from "./department/department.module";
+import {DepartmentCrudComponent} from "./department/department-crud/department-crud.component";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import {SharedModule} from "./shared/shared.module";
     CoreModule,
     StudentModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    DepartmentModule
 
   ],
   providers: [],

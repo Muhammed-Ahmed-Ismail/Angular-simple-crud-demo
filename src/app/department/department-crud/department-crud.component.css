@@ -1,0 +1,67 @@
+table  {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:30px;
+}
+mat-paginator
+{
+  margin-top: 10px;
+}
+tr.mat-header-row
+{
+  width:100%
+}
+.table-container
+{
+  padding:25px
+}
+/*. cdk-cell*/
+.cdk-cell
+{
+  width:25%
+}
+.control-button-container
+{
+  display:flex;
+  gap : 10px
+}
+.control-button-container button
+{
+  width:30px;
+  height:30px;
+  display:flex;
+  justify-content:center;
+  align-items:center
+
+
+}
+.control-button-container button .mat-button-wrapper
+{
+  margin:0
+}
+
+/*.mat-column-name {*/
+/*  word-wrap: break-word !important;*/
+/*  white-space: unset !important;*/
+/*  flex: 0 0 28% !important;*/
+/*  width: 50% !important;*/
+/*  overflow-wrap: break-word;*/
+/*  word-wrap: break-word;*/
+
+/*  word-break: break-word;*/
+
+/*  -ms-hyphens: auto;*/
+/*  -moz-hyphens: auto;*/
+/*  -webkit-hyphens: auto;*/
+/*  hyphens: auto;*/
+/*}*/
+
+/*.mat-row*/
+/*{*/
+/*  width:400px !important;*/
+/*}*/
+/*.mat-head*/
+/*{*/
+/*  width: 100%;*/
+/*}*/

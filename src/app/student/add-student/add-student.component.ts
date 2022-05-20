@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentService} from "../../student.service";
+import {StudentService} from "../../_services/student.service";
 import {Student} from "../../_models/student";
 import {DialogModule} from 'primeng/dialog';
 import {Router} from "@angular/router";

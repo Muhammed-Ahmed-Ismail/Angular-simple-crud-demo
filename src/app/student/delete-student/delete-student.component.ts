@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StudentService} from "../../student.service";
+import {StudentService} from "../../_services/student.service";
 
 @Component({
   selector: 'app-delete-student',

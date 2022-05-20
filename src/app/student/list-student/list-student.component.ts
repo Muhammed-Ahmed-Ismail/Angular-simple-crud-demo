@@ -1,5 +1,5 @@
 import {Component, Injectable, Input, OnChanges, OnInit,SimpleChanges} from '@angular/core';
-import {StudentService} from "../../student.service";
+import {StudentService} from "../../_services/student.service";
 import {Student} from "../../_models/student";
 @Injectable({
   providedIn: 'root'
