@@ -23,13 +23,20 @@ export class EditStudentComponent implements OnInit {
   edit()
   {
     this.showModalDialog()
-    let student=this.studentService.getStudentById(this.id);
-    this.editedRecord=  (student ===undefined)? new Student(): new Student(student._id, student.name, student.age, student.deptName)
+    this.studentService.getStudentById(this.id)?.subscribe({
+      next:(student)=>{
+        this.editedRecord=  student
+      }
+    });
 
   }
   save()
   {
-    this.studentService.edit(this.editedRecord)
+    this.studentService.edit(this.editedRecord).subscribe({
+      complete:()=>{
+        this.studentService.provideList()
+      }
+    })
     this.displayModal=false;
   }
 }

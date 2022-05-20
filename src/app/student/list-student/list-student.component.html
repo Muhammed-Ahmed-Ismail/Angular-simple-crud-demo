@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let student of studetns; let ser=index">
+  <tr *ngFor="let student of this.studentService.studentsList; let ser=index">
     <td>{{ser+1}}</td>
     <td >{{student._id}}</td>
     <td >{{student.name}}</td>

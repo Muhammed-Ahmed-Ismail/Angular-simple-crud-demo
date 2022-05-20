@@ -13,9 +13,10 @@ import {ListStudentComponent} from "../list-student/list-student.component";
 export class AddStudentComponent implements OnInit {
   displayModal: boolean=false;
 
-  constructor(public studentService:StudentService,public router:Router,public listStudent:ListStudentComponent) { }
+  constructor(public studentService:StudentService,public router:Router) { }
 
   ngOnInit(): void {
+
   }
 
   showModalDialog() {
@@ -23,10 +24,18 @@ export class AddStudentComponent implements OnInit {
   }
   add(idField:any,nameField:any,ageField:any,deptField:any)
   {
-    this.displayModal=false
+
     let newStudent=new Student(idField.value, nameField.value, ageField.value, deptField.value)
+
     this.studentService.add(newStudent).subscribe({
-      next:(a)=>{
+      complete:()=>{
+      this.studentService.getAllStudents().subscribe({
+        next:(data)=>{
+         this.studentService.studentsList=data
+          this.displayModal=false
+        }
+      })
+
 
       },
     })

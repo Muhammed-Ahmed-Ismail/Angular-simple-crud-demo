@@ -1,4 +1,4 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnChanges, OnInit,SimpleChanges} from '@angular/core';
 import {StudentService} from "../../student.service";
 import {Student} from "../../_models/student";
 @Injectable({
@@ -10,17 +10,26 @@ import {Student} from "../../_models/student";
   styleUrls: ['./list-student.component.css']
 })
 
-export class ListStudentComponent implements OnInit {
-studetns:Student[]=[]
+export class ListStudentComponent implements OnInit , OnChanges{
+
   constructor(public studentService:StudentService) { }
 
   ngOnInit(): void {
-    this.studentService.getAllStudents().subscribe({
-      next:(data)=>{
-        this.studetns=data
-      }
-    })
+
+    this.studentService.provideList()
+  }
+  ngOnChanges(changes: SimpleChanges) {
+  console.log(changes)
   }
 
+  getAllStudents()
+{
+ // console.log(this.studetns)
+  // this.studentService.getAllStudents().subscribe({
+  //   next:(data)=>{
+  //     this.studetns=data
+  //   }
+  // })
+}
 
 }

@@ -16,6 +16,10 @@ export class DeleteStudentComponent implements OnInit {
 
   delete()
   {
-    this.studentService.delete(this.id)
+    this.studentService.delete(this.id).subscribe({
+      complete:()=>{
+        this.studentService.provideList()
+      }
+    })
   }
 }
