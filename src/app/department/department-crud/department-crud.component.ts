@@ -25,14 +25,7 @@ export class DepartmentCrudComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.departmentService.getAllDepartments().subscribe({
-      next: (data) => {
-        this.departments = data
-        this.dataSource = new MatTableDataSource<Department>(this.departments);
-        this.dataSource.paginator = this.paginator;
-        console.log(data)
-      }
-    })
+    this.updateList()
   }
 
   ngAfterViewInit() {
@@ -44,24 +37,33 @@ export class DepartmentCrudComponent implements AfterViewInit {
     this.departmentService.addDepartment(this.addedDepartment)
       .subscribe({
         next: (department) => {
-          this.departmentService.getAllDepartments().subscribe({
-            next: (departments) => {
-              this.departments = departments
-              this.dataSource = new MatTableDataSource<Department>(this.departments);
-              this.dataSource.paginator = this.paginator;
-            }
-          })
-          this.addedDepartment=new Department()
-          this.displayAddModal=false
+          this.updateList()
+          this.addedDepartment = new Department()
+          this.displayAddModal = false
         }
       })
   }
 
-  addDepartment() {
-
+  updateList() {
+    this.departmentService.getAllDepartments().subscribe({
+      next: (departments) => {
+        this.departments = departments
+        this.dataSource = new MatTableDataSource<Department>(this.departments);
+        this.dataSource.paginator = this.paginator;
+      }
+    })
   }
 
   showModalDialog() {
     this.displayAddModal = true;
+  }
+
+  delete(_id: number) {
+    this.departmentService.deleteDepartment(_id).subscribe({
+        complete: () => {
+          this.updateList()
+        }
+      }
+    )
   }
 }

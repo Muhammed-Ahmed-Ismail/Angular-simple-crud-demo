@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Department} from "../_models/department";
 
@@ -7,17 +7,22 @@ import {Department} from "../_models/department";
 })
 export class DepartmentService {
 
-  private url:string;
-  constructor(public http:HttpClient) {
-    this.url="http://localhost:8080/departments/"
+  private url: string;
+
+  constructor(public http: HttpClient) {
+    this.url = "http://localhost:8080/departments/"
   }
 
-  getAllDepartments()
-  {
+  getAllDepartments() {
     return this.http.get<Department[]>(this.url)
   }
-  addDepartment(addedDepartment:Department)
+
+  addDepartment(addedDepartment: Department) {
+    return this.http.post<Department>(this.url, addedDepartment)
+  }
+
+  deleteDepartment(id:number)
   {
-    return this.http.post<Department>(this.url,addedDepartment)
+    return  this.http.delete(`${this.url+id}`)
   }
 }
