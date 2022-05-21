@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {DialogModule} from "primeng/dialog";
 import {InputTextModule} from "primeng/inputtext";
 import {ButtonModule} from "primeng/button";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -15,16 +16,17 @@ import {ButtonModule} from "primeng/button";
   declarations: [
     DepartmentCrudComponent
   ],
-  imports: [
-    CommonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatIconModule,
-    MatButtonModule,
-    DialogModule,
-    InputTextModule,
-    ButtonModule
-  ],
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatIconModule,
+        MatButtonModule,
+        DialogModule,
+        InputTextModule,
+        ButtonModule,
+        FormsModule
+    ],
   exports:[
     DepartmentCrudComponent
   ]

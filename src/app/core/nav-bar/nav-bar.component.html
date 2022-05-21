@@ -1,4 +1,24 @@
-<nav id="c-nav-bar">
+<!--<nav id="c-nav-bar">-->
+<!--  <div id="nav-bar-container">-->
+<!--    <div id="c-logo">-->
+<!--      <h1>Simple Cruds </h1>-->
+<!--    </div>-->
+<!--    <div id="c-menu">-->
+<!--      <ul>-->
+<!--        <li>-->
+<!--          <div class="hyper-c"><a routerLink="/students">students crud</a></div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <div class="hyper-c"><a routerLink="/departments">departments crud</a></div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <div class="hyper-c"><a routerLink="/products">products crud</a></div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+<mat-toolbar class="navbar">
   <div id="nav-bar-container">
     <div id="c-logo">
       <h1>Simple Cruds </h1>
@@ -6,15 +26,19 @@
     <div id="c-menu">
       <ul>
         <li>
-          <div class="hyper-c"><a routerLink="/students">students crud</a></div>
+
+          <button mat-raised-button>
+            <a routerLink="/students">students crud</a>
+          </button>
+
         </li>
         <li>
-          <div class="hyper-c"><a routerLink="/departments">departments crud</a></div>
+          <button mat-raised-button><a routerLink="/departments">departments crud</a></button>
         </li>
         <li>
-          <div class="hyper-c"><a routerLink="/products">products crud</a></div>
+          <button mat-raised-button><a routerLink="/products">products crud</a></button>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</mat-toolbar>

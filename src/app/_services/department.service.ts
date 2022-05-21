@@ -25,4 +25,12 @@ export class DepartmentService {
   {
     return  this.http.delete(`${this.url+id}`)
   }
+
+  getDepartmentById(id: number) {
+    return this.http.get<Department>(`${this.url+id}`)
+  }
+
+  editDepartment(editedRecord: Department) {
+   return  this.http.put<Department>(`${this.url+editedRecord._id}`,editedRecord)
+  }
 }

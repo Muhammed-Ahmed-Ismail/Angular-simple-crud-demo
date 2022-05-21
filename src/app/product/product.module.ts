@@ -16,6 +16,8 @@ import {FileUploadModule} from 'primeng/fileupload';
 import {HttpClientModule} from '@angular/common/http';
 import {RippleModule} from "primeng/ripple";
 import {DashReplacerPipe} from "../dash-replacer.pipe";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -41,7 +43,9 @@ import {DashReplacerPipe} from "../dash-replacer.pipe";
     RatingModule,
     FileUploadModule,
     HttpClientModule,
-    RippleModule
+    RippleModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports:[
     ProductComponent

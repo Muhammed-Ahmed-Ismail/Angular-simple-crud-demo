@@ -15,7 +15,12 @@
     <thead>
     <tr>
       <th scope="col">
-        <button class="btn btn-primary" (click)="toggleShowImages()"> show images</button>
+        <div class="example-button-container">
+          <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="toggleShowImages()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+<!--        <button class="btn btn-primary" (click)="toggleShowImages()"> show images</button>-->
       </th>
       <th scope="col">product</th>
       <th scope="col">code</th>
@@ -36,13 +41,16 @@
       <td>{{product.price }}</td>
       <td>
         <app-stars [rate]=product.rating></app-stars>
+        <p-rating [ngModel]=product.rating [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
       </td>
       <td>
         <div id="table-controller">
-          <button pButton pRipple type="button" label="" class="p-button-warning p-button-sm" icon="pi pi-pencil"
-                  (click)="edit(product.id)"></button>
-          <button pButton pRipple type="button" label="" class="p-button-danger p-button-sm" icon="pi pi-trash"
-                  (click)="delete(product.id)"></button>
+          <button mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="delete(product.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-fab color="primary" aria-label="Example icon button with a home icon" (click)="edit(product.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
         </div>
       </td>
 

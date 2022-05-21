@@ -2,7 +2,7 @@
   <div class="example-button-container">
     <button mat-fab color="primary"
             aria-label="Example icon button with a home icon"
-            (click)="showModalDialog()"
+            (click)="showAddModalDialog()"
     >
       <mat-icon>plus_one</mat-icon>
     </button>
@@ -34,7 +34,7 @@
           <button mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="delete(element._id)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-fab color="primary" aria-label="Example icon button with a home icon">
+          <button mat-fab color="primary" aria-label="Example icon button with a home icon" (click)="edit(element._id)">
             <mat-icon>edit</mat-icon>
           </button>
         </div>
@@ -77,5 +77,30 @@
   </div>
   <ng-template pTemplate="footer">
     <p-button icon="pi pi-plus" (click)="add(i1,i2,i3)" label="Add" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog header="Add student" [(visible)]="displayEditModal" [modal]="true" [style]="{width: '50vw'}"
+          [draggable]="false" [resizable]="false">
+  <div class="grid p-fluid">
+
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input [(ngModel)]="editedRecord.name" type="text" pInputText placeholder="name">
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input [(ngModel)]="editedRecord.location" type="text" pInputText placeholder="Age">
+      </div>
+    </div>
+
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-plus" (click)="save()" label="Add" styleClass="p-button-text"></p-button>
   </ng-template>
 </p-dialog>

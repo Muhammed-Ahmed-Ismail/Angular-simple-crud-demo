@@ -18,8 +18,10 @@ export class DepartmentCrudComponent implements AfterViewInit {
   departments: Department[] = []
   dataSource = new MatTableDataSource<Department>(this.departments);
   displayAddModal: boolean = false
-
+  displayEditModal: boolean = false;
   addedDepartment: Department = new Department();
+  editedRecord: Department=new Department();
+
 
   constructor(public departmentService: DepartmentService) {
   }
@@ -54,14 +56,38 @@ export class DepartmentCrudComponent implements AfterViewInit {
     })
   }
 
-  showModalDialog() {
+  showAddModalDialog() {
     this.displayAddModal = true;
+  }
+  showEditModalDialog() {
+    this.displayEditModal = true;
   }
 
   delete(_id: number) {
     this.departmentService.deleteDepartment(_id).subscribe({
         complete: () => {
           this.updateList()
+        }
+      }
+    )
+  }
+
+
+  save() {
+    this.departmentService.editDepartment(this.editedRecord).subscribe({
+      complete:()=>{
+        this.updateList()
+      }
+    })
+    this.displayEditModal=false
+  }
+
+  edit(_id: number) {
+    this.departmentService.getDepartmentById(_id).subscribe(
+      {
+        next:(department)=>{
+          this.editedRecord=department
+          this.showEditModalDialog()
         }
       }
     )
